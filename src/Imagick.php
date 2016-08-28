@@ -1,7 +1,9 @@
 <?php
+use Imagick\Argument;
+use Imagick\Geometry;
 
 /**
- * @package    php-imagick
+ * @package    calcinai/php-imagick
  * @author     Michael Calcinai <michael@calcin.ai>
  */
 class Imagick implements Iterator {
@@ -397,9 +399,11 @@ class Imagick implements Iterator {
     private $file;
 
     /**
-     * @var \Imagick\Argument[][]
+     * @var Argument[][]
      */
     private $convert_args;
+
+    private $gravity;
 
     public static $convert_path;
 
@@ -776,8 +780,8 @@ class Imagick implements Iterator {
      */
     public function cropImage($width, $height, $x, $y) {
 
-        $geometry = new \Imagick\Geometry($width, $height, $x, $y);
-        $argument = new \Imagick\Argument('crop', $geometry);
+        $geometry = new Geometry($width, $height, $x, $y);
+        $argument = new Argument('crop', $geometry);
 
         $this->addConvertArgument($argument);
 
@@ -1298,7 +1302,7 @@ class Imagick implements Iterator {
 
     /** @return int */
     public function getImageGravity() {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        return $this->gravity;
     }
 
     /** @return array */
@@ -2188,17 +2192,14 @@ class Imagick implements Iterator {
      */
     public function resizeImage($columns, $rows, $filter, $blur, $bestfit = false) {
 
-        $geometry = new \Imagick\Geometry($columns, $rows);
-
-        $filter = new \Imagick\Argument\Filter($filter);
+        $geometry = new Geometry($columns, $rows);
 
         if($bestfit){
-            $geometry->scale_mode = \Imagick\Geometry::SCALE_MINIMUM;
+            $geometry->scale_mode = Geometry::SCALE_MAXIMUM;
         }
 
-        $arg = new \Imagick\Argument('resize', $geometry);
-
-        $this->addConvertArgument($arg);
+        $this->addConvertArgument(new Argument('resize', $geometry));
+        $this->addConvertArgument(new \Imagick\Argument\Filter($filter));
 
         return true;
     }
@@ -2363,7 +2364,9 @@ class Imagick implements Iterator {
      * @return bool
      */
     public function setGravity($gravity) {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $this->gravity = $gravity;
+        $this->addConvertArgument(new \Imagick\Argument\Gravity($gravity));
+        return true;
     }
 
     /**
@@ -2527,7 +2530,8 @@ class Imagick implements Iterator {
      * @return bool
      */
     public function setImageExtent($columns, $rows) {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $this->addConvertArgument(new Argument('extent', new Geometry($columns, $rows)));
+        return true;
     }
 
     /**
@@ -3048,7 +3052,19 @@ class Imagick implements Iterator {
      * @return bool
      */
     public function thumbnailImage($columns, $rows, $bestfit = false, $fill = false) {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+
+        $geometry = new Geometry($columns, $rows);
+
+        if($bestfit){
+            $geometry->scale_mode = Geometry::SCALE_MAXIMUM;
+        }
+
+        if($fill){
+            //What is this argument meant to do?
+        }
+
+        $this->addConvertArgument(new Argument('thumbnail', $geometry));
+
     }
 
     /**
@@ -3225,9 +3241,9 @@ class Imagick implements Iterator {
     }
 
     /**
-     * @param \Imagick\Argument $argument
+     * @param Argument $argument
      */
-    private function addConvertArgument(\Imagick\Argument $argument){
+    private function addConvertArgument(Argument $argument){
         $this->convert_args[] = $argument;
     }
 
