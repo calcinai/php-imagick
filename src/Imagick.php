@@ -1134,8 +1134,7 @@ class Imagick implements Iterator {
     public function getImageBlob() {
         $convert_command = $this->buildConvertCommand('-');
 
-        echo shell_exec($convert_command);
-
+        return shell_exec($convert_command);
     }
 
     /** @return array */
@@ -2356,7 +2355,7 @@ class Imagick implements Iterator {
      * @return bool
      */
     public function setFormat($format) {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        return $this->setImageFormat($format);
     }
 
     /**
@@ -2547,7 +2546,8 @@ class Imagick implements Iterator {
      * @return bool
      */
     public function setImageFormat($format) {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $this->addConvertArgument(new Argument('format', $format));
+        return true;
     }
 
     /**
