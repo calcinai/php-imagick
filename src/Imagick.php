@@ -390,12 +390,42 @@ class Imagick implements Iterator {
     const FUNCTION_POLYNOMIAL               = 1;
     const FUNCTION_SINUSOID                 = 2;
 
+
+    /**
+     * @var string
+     */
+    private $file;
+
+    /**
+     * @var \Imagick\Argument[][]
+     */
+    private $convert_args;
+
+    public static $convert_path;
+
     /**
      * Imagick constructor.
-     * @param mixed $files
+     * @param string $file
      */
-    public function __construct($files) {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+    public function __construct($file) {
+
+        if(!isset(self::$convert_path)){
+            //Very crude test - happy to make this better..
+            if (DIRECTORY_SEPARATOR == '/') {
+                self::$convert_path = '/usr/bin/env convert';
+            } else {
+                self::$convert_path = 'convert';
+            }
+        }
+
+        //Should this handle an array here?
+//        if(!is_array($files)){
+//            $this->files = [$files];
+//        } else {
+//            $this->files = $files;
+//        }
+
+        $this->file = $file;
     }
 
     /**
@@ -745,7 +775,14 @@ class Imagick implements Iterator {
      * @return bool
      */
     public function cropImage($width, $height, $x, $y) {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+
+        $geometry = new \Imagick\Geometry($width, $height, $x, $y);
+        $argument = new \Imagick\Argument('crop', $geometry);
+
+        $this->addConvertArgument($argument);
+
+        //Somehow check that it's valid?
+        return true;
     }
 
     /**
@@ -1091,7 +1128,10 @@ class Imagick implements Iterator {
 
     /** @return string */
     public function getImageBlob() {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $convert_command = $this->buildConvertCommand('-');
+
+        echo shell_exec($convert_command);
+
     }
 
     /** @return array */
@@ -2147,7 +2187,20 @@ class Imagick implements Iterator {
      * @return bool
      */
     public function resizeImage($columns, $rows, $filter, $blur, $bestfit = false) {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+
+        $geometry = new \Imagick\Geometry($columns, $rows);
+
+        $filter = new \Imagick\Argument\Filter($filter);
+
+        if($bestfit){
+            $geometry->scale_mode = \Imagick\Geometry::SCALE_MINIMUM;
+        }
+
+        $arg = new \Imagick\Argument('resize', $geometry);
+
+        $this->addConvertArgument($arg);
+
+        return true;
     }
 
     /**
@@ -3170,4 +3223,21 @@ class Imagick implements Iterator {
     public function rewind() {
         // TODO: Implement rewind() method.
     }
+
+    /**
+     * @param \Imagick\Argument $argument
+     */
+    private function addConvertArgument(\Imagick\Argument $argument){
+        $this->convert_args[] = $argument;
+    }
+
+
+    /**
+     * @param string $output_file
+     * @return string
+     */
+    private function buildConvertCommand($output_file){
+        return sprintf('%s %s %s %s', self::$convert_path, implode(' ', $this->convert_args), $this->file, $output_file);
+    }
+
 }
