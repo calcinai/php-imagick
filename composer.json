@@ -9,7 +9,9 @@
             "email": "michael@calcin.ai"
         }
     ],
-
+    "suggest": {
+        "ext-imagick": "Native extension"
+    },
     "autoload": {
         "psr-0": {
             "Imagick": "src/"
