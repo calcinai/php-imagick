@@ -47,8 +47,10 @@ class Geometry {
             $compiled .= $this->width;
         }
 
+        $compiled .= 'x';
+
         if($this->height !== null){
-            $compiled .= sprintf('x%s', $this->height);
+            $compiled .= $this->height;
         }
 
         if($this->scale_mode !== null){
