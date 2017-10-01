@@ -812,6 +812,10 @@ class Imagick implements Iterator
             } else if(substr($name, 'CHANNEL_') === 0 AND $channel == $val) {
                 $channel = strtolower(substr($name, 8));
             }
+            
+            if(is_string($composite) AND is_string($channel)) {
+                break;
+            }
         }
         
         $this->addConvertCommand('composite');
