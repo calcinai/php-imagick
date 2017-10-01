@@ -663,6 +663,7 @@ class Imagick implements Iterator
     /** @return bool */
     public function clear()
     {
+        $this->files = [];
         return true;
     }
 
@@ -800,9 +801,39 @@ class Imagick implements Iterator
      * @param int $channel
      * @return bool
      */
-    public function compositeImage($composite_object, $composite, $x, $y, $channel = Imagick::CHANNEL_ALL) //TODO
+    public function compositeImage($composite_object, $composite, $x, $y, $channel = Imagick::CHANNEL_ALL) //?TODO
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $rfl = new ReflectionClass(self::class);
+        $constants = $rfl->getConstants();
+        
+        foreach($constants as $name => $val) {
+            if(substr($name, 'COMPOSITE_') === 0 AND $composite == $val) {
+                $composite = strtolower(substr($name, 10));
+            } else if(substr($name, 'CHANNEL_') === 0 AND $channel == $val) {
+                $channel = strtolower(substr($name, 8));
+            }
+        }
+        
+        $this->addConvertCommand('composite');
+        
+        $argument = new Argument('compose', $composite);
+        $this->addConvertArgument($argument);
+        
+        $argument = new Argument('channel', $channel);
+        $this->addConvertArgument($argument);
+        
+        $argument = new Argument('geometry', $x.'x'.$y);
+        $this->addConvertArgument($argument);
+        
+        $composite_image = $composite_object->getImageBlob();
+        $filename = tempnam(sys_get_temp_dir(), 'composite_image');
+
+        if(!file_put_contents($filename, $composite_image)) {
+            throw new ImagickException('Can\'t write temporary file for composite image');
+        }
+        
+        $this->addConvertCommand($filename);
+        return true;
     }
 
     /**
@@ -943,10 +974,11 @@ class Imagick implements Iterator
         if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
+    /** @description Deprecated in favor of Imagick::clear */
     /** @return bool */
     public function destroy()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        return $this->clear();
     }
 
     /**
@@ -955,7 +987,11 @@ class Imagick implements Iterator
      */
     public function displayImage($servername)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $argument = new Argument('display', $servername);
+        $this->addConvertArgument($argument);
+
+        //Somehow check that it's valid?
+        return true;
     }
 
     /**
@@ -964,7 +1000,11 @@ class Imagick implements Iterator
      */
     public function displayImages($servername)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $argument = new Argument('display', $servername);
+        $this->addConvertArgument($argument);
+
+        //Somehow check that it's valid?
+        return true;
     }
 
     /**
@@ -1234,9 +1274,16 @@ class Imagick implements Iterator
     }
 
     /** @return int */
-    public function getImageAlphaChannel() //TODO
+    public function getImageAlphaChannel() //?TODO
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $files = $this->files;
+        $current = key($files);
+        $files[$current][] = new Argument('format', '%[channels]');
+        $files[$current][] = 'info:';
+        
+        $convert_command = $this->buildConvertCommand(key($files), current($files), '-');
+        $channels = shell_exec($convert_command);
+        return (int) substr($channels, 'rgba') !== false;
     }
 
     /**
@@ -1551,6 +1598,7 @@ class Imagick implements Iterator
         $files = $this->files;
         $current = key($files);
         $files[$current][] = new Argument('format', '%[EXIF:Orientation]');
+        $files[$current][] = 'info:';
         
         $convert_command = $this->buildConvertCommand(key($files), current($files), '-');
         $orientation = shell_exec($convert_command);
@@ -2108,9 +2156,16 @@ class Imagick implements Iterator
      * @param string $format
      * @return bool
      */
-    public function newImage($cols, $rows, $background, $format) //TODO
+    public function newImage($cols, $rows, $background, $format) //?TODO
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $argument = new Argument('size', $cols.'x'.$rows);
+        $this->addConvertArgument($argument);
+        
+        $background = new ImagePickel($background);
+        $this->addConvertCommand('xc:rgb('.implode(',', $background->getColor()).')');
+        
+        $this->setImageFormat($format);
+        return true;
     }
 
     /**
@@ -2718,9 +2773,14 @@ class Imagick implements Iterator
      * @param int $mode
      * @return bool
      */
-    public function setImageAlphaChannel($mode) //TODO
+    public function setImageAlphaChannel($mode) //?TODO
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        //if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        
+        $argument = new Argument('alpha', 'on');
+        $this->addConvertArgument($argument);
+        
+        return true;
     }
 
     /**
@@ -2746,9 +2806,13 @@ class Imagick implements Iterator
      * @param mixed $background
      * @return bool
      */
-    public function setImageBackgroundColor($background) //TODO
+    public function setImageBackgroundColor($background) //?TODO
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $background = new ImagePixel($background);
+        $argument = new Argument('background', 'rgb('.implode(',', $background->getColor()).')');
+        $this->addConvertArgument($argument);
+        
+        return true;
     }
 
     /**
