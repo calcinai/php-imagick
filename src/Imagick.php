@@ -836,7 +836,9 @@ class Imagick implements Iterator
             throw new ImagickException('Can\'t write temporary file for composite image');
         }
         
+        $this->tmp_files[] = $filename;
         $this->addConvertCommand($filename);
+        
         return true;
     }
 
