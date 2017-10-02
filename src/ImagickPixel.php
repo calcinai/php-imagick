@@ -153,7 +153,7 @@ class ImagickPixel {
             $this->color = [ (int) substr($color, 0, 2), (int) substr($color, 3, 4), (int) substr($color, 5, 6) ];
         } elseif(isset(self::$colors[strtoupper($color)])) {
             $color = self::$colors[strtoupper($color)];
-            $this->color = [ ($color >> 16) & 255, ($color >> 8) & 255, $color & 255 ]
+            $this->color = [ ($color >> 16) & 255, ($color >> 8) & 255, $color & 255 ];
         } else {
             throw new Exception(sprintf('Can not resolve color %s', $color));
         }
