@@ -398,6 +398,11 @@ class Imagick implements Iterator
      * @var Argument[][]
      */
     private $files;
+    
+    /**
+     * @var string
+     */
+    private $filename;
 
     /**
      * @var
@@ -511,7 +516,8 @@ class Imagick implements Iterator
      */
     public function addImage($source)
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $this->files[$source] = [];
+        return true;
     }
 
     /**
@@ -660,7 +666,8 @@ class Imagick implements Iterator
     /** @return bool */
     public function clear()
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $this->files = [];
+        return true;
     }
 
     /** @return bool */
@@ -797,9 +804,45 @@ class Imagick implements Iterator
      * @param int $channel
      * @return bool
      */
-    public function compositeImage($composite_object, $composite, $x, $y, $channel = Imagick::CHANNEL_ALL)
+    public function compositeImage($composite_object, $composite, $x, $y, $channel = Imagick::CHANNEL_ALL) //?TODO
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $rfl = new ReflectionClass(self::class);
+        $constants = $rfl->getConstants();
+        
+        foreach($constants as $name => $val) {
+            if(strpos($name, 'COMPOSITE_') === 0 AND $composite == $val) {
+                $composite = strtolower(substr($name, 10));
+            } else if(strpos($name, 'CHANNEL_') === 0 AND $channel == $val) {
+                $channel = strtolower(substr($name, 8));
+            }
+            
+            if(is_string($composite) AND is_string($channel)) {
+                break;
+            }
+        }
+        
+        $this->addConvertCommand('composite');
+        
+        $argument = new Argument('compose', $composite);
+        $this->addConvertArgument($argument);
+        
+        $argument = new Argument('channel', $channel);
+        $this->addConvertArgument($argument);
+        
+        $argument = new Argument('geometry', $x.'x'.$y);
+        $this->addConvertArgument($argument);
+        
+        $composite_image = $composite_object->getImageBlob();
+        $filename = tempnam(sys_get_temp_dir(), 'composite_image');
+
+        if(!file_put_contents($filename, $composite_image)) {
+            throw new ImagickException('Can\'t write temporary file for composite image');
+        }
+        
+        $this->tmp_files[] = $filename;
+        $this->addConvertCommand($filename);
+        
+        return true;
     }
 
     /**
@@ -866,7 +909,16 @@ class Imagick implements Iterator
      */
     public function cropThumbnailImage($width, $height)
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $argument = new Argument('adaptive-resize', $width.'x'.$height);
+        $this->addConvertArgument($argument);
+        
+        $geometry = new Geometry($width, $height, $x, $y);
+        $argument = new Argument('crop', $geometry);
+        
+        $this->addConvertArgument($argument);
+
+        //Somehow check that it's valid?
+        return true;
     }
 
     /** @return Imagick */
@@ -931,10 +983,11 @@ class Imagick implements Iterator
         throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
+    /** @description Deprecated in favor of Imagick::clear */
     /** @return bool */
     public function destroy()
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        return $this->clear();
     }
 
     /**
@@ -943,7 +996,11 @@ class Imagick implements Iterator
      */
     public function displayImage($servername)
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $argument = new Argument('display', $servername);
+        $this->addConvertArgument($argument);
+
+        //Somehow check that it's valid?
+        return true;
     }
 
     /**
@@ -952,7 +1009,11 @@ class Imagick implements Iterator
      */
     public function displayImages($servername)
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $argument = new Argument('display', $servername);
+        $this->addConvertArgument($argument);
+
+        //Somehow check that it's valid?
+        return true;
     }
 
     /**
@@ -963,7 +1024,28 @@ class Imagick implements Iterator
      */
     public function distortImage($method, $arguments, $bestfit)
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $rfl = new ReflectionClass(self::class);
+        $constants = $rfl->getConstants();
+        
+        foreach($constants as $name => $val) {
+            if(strpos($name, 'DISTORTION_') === 0 AND $method == $val) {
+                $method = substr($name, 11);
+                break;
+            }
+        }
+        
+        switch($method) {
+            case 'SCALEROTATETRANSLATE':
+                $method = 'ScaleRotateTranslate';
+            break;
+        }
+        
+        $this->addConvertCommand('-distort');
+        $this->addConvertCommand($method);
+        $this->addConvertCommand("'".implode(' ', $arguments)."'");
+
+        //Somehow check that it's valid?
+        return true;
     }
 
     /**
@@ -1035,7 +1117,7 @@ class Imagick implements Iterator
      * @param int $STORAGE
      * @return bool
      */
-    public function exportImagePixels($x, $y, $width, $height, $map, $STORAGE)
+    public function exportImagickPixels($x, $y, $width, $height, $map, $STORAGE)
     {
         throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
@@ -1218,9 +1300,18 @@ class Imagick implements Iterator
     }
 
     /** @return int */
-    public function getImageAlphaChannel()
+    public function getImageAlphaChannel() //?TODO
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $files = $this->files;
+        
+        $current = key($files);
+        $files[$current][] = new Argument('format', '%[channels]');
+        $files[$current][] = 'info:';
+        
+        $convert_command = $this->buildConvertCommand(key($files), current($files), '-');
+        $channels = shell_exec($convert_command);
+        
+        return (int) strpos($channels, 'rgba') !== false;
     }
 
     /**
@@ -1457,7 +1548,16 @@ class Imagick implements Iterator
     /** @return int */
     public function getImageHeight()
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $files = $this->files;
+        $current = key($files);
+        $files[$current][] = new Argument('format', '%w x %h');
+        $files[$current][] = 'info:';
+        
+        $convert_command = $this->buildConvertCommand(key($files), current($files), '-');
+        $size = shell_exec($convert_command);
+        list($width, $height) = explode('x', str_replace(' ', '', $size));
+        
+        return (int) $height;
     }
 
     /** @return array */
@@ -1523,7 +1623,16 @@ class Imagick implements Iterator
     /** @return int */
     public function getImageOrientation()
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $files = $this->files;
+        $current = key($files);
+        $files[$current][] = new Argument('format', '%[EXIF:Orientation]');
+        $files[$current][] = 'info:';
+        
+        $convert_command = $this->buildConvertCommand(key($files), current($files), '-');
+        $orientation = shell_exec($convert_command);
+        
+        $name = 'Imagick::ORIENTATION_'.strtoupper($orientation);
+        return (int) constant($name);
     }
 
     /** @return array */
@@ -1537,7 +1646,7 @@ class Imagick implements Iterator
      * @param int $y
      * @return ImagickPixel
      */
-    public function getImagePixelColor($x, $y)
+    public function getImagickPixelColor($x, $y)
     {
         throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
@@ -1673,7 +1782,16 @@ class Imagick implements Iterator
     /** @return int */
     public function getImageWidth()
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $files = $this->files;
+        $current = key($files);
+        $files[$current][] = new Argument('format', '%w x %h');
+        $files[$current][] = 'info:';
+        
+        $convert_command = $this->buildConvertCommand(key($files), current($files), '-');
+        $size = shell_exec($convert_command);
+        list($width, $height) = explode('x', str_replace(' ', '', $size));
+        
+        return (int) $width;
     }
 
     /** @return int */
@@ -1873,7 +1991,7 @@ class Imagick implements Iterator
      * @param array $pixels
      * @return bool
      */
-    public function importImagePixels($x, $y, $width, $height, $map, $storage, $pixels)
+    public function importImagickPixels($x, $y, $width, $height, $map, $storage, $pixels)
     {
         throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
@@ -2068,9 +2186,16 @@ class Imagick implements Iterator
      * @param string $format
      * @return bool
      */
-    public function newImage($cols, $rows, $background, $format)
+    public function newImage($cols, $rows, $background, $format) //?TODO
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $argument = new Argument('size', $cols.'x'.$rows);
+        $this->addConvertArgument($argument);
+        
+        $background = new ImagePickel($background);
+        $this->addConvertCommand('xc:rgb('.implode(',', $background->getColor()).')');
+        
+        $this->setImageFormat($format);
+        return true;
     }
 
     /**
@@ -2342,7 +2467,16 @@ class Imagick implements Iterator
      */
     public function readImage($filename)
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        if(key($this->files) === "") {
+            $this->files[$filename] = current($this->files);
+            
+            $this->files[''] = null;
+            unset($this->files['']);
+        } else {
+            $this->files[$filename] = [];
+        }
+        
+        return true;
     }
 
     /**
@@ -2359,7 +2493,7 @@ class Imagick implements Iterator
         }
 
         if (file_put_contents($filename, $image)) {
-            $this->files[$filename] = [];
+            $this->readImage($filename);
             $this->tmp_files[] = $filename;
             return true;
         }
@@ -2466,7 +2600,6 @@ class Imagick implements Iterator
      */
     public function resizeImage($columns, $rows, $filter, $blur, $bestfit = false)
     {
-
         $geometry = new Geometry($columns, $rows);
 
         if ($bestfit) {
@@ -2676,9 +2809,14 @@ class Imagick implements Iterator
      * @param int $mode
      * @return bool
      */
-    public function setImageAlphaChannel($mode)
+    public function setImageAlphaChannel($mode) //?TODO
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        //throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        
+        $argument = new Argument('alpha', 'on');
+        $this->addConvertArgument($argument);
+        
+        return true;
     }
 
     /**
@@ -2704,9 +2842,13 @@ class Imagick implements Iterator
      * @param mixed $background
      * @return bool
      */
-    public function setImageBackgroundColor($background)
+    public function setImageBackgroundColor($background) //?TODO
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $background = new ImagickPixel($background);
+        $argument = new Argument('background', 'rgb('.implode(',', $background->getColor()).')');
+        $this->addConvertArgument($argument);
+        
+        return true;
     }
 
     /**
@@ -2854,7 +2996,8 @@ class Imagick implements Iterator
      */
     public function setImageFilename($filename)
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $this->filename = $filename;
+        return true;
     }
 
     /**
@@ -2964,7 +3107,31 @@ class Imagick implements Iterator
      */
     public function setImageOrientation($orientation)
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        switch($orientation) {
+            case self::ORIENTATION_TOPLEFT:
+            case self::ORIENTATION_LEFTTOP:
+                $orientation = 'TOPLEFT';
+            break;
+            case self::ORIENTATION_TOPRIGHT:
+            case self::ORIENTATION_RIGHTTOP:
+                $orientation = 'TOPRIGHT';
+            break;
+            case self::ORIENTATION_BOTTOMLEFT:
+            case self::ORIENTATION_LEFTBOTTOM:
+                $orientation = 'BOTTOMLEFT';
+            break;
+            case self::ORIENTATION_BOTTOMRIGHT:
+            case self::ORIENTATION_RIGHTBOTTOM:
+                $orientation = 'BOTTOMRIGHT';
+            break;
+        }
+        
+        $argument = new Argument('orient', $orientation);
+        $this->addConvertArgument($argument);
+        $this->addConvertCommand('info:');
+
+        //Somehow check that it's valid?
+        return true;
     }
 
     /**
@@ -2976,7 +3143,7 @@ class Imagick implements Iterator
      */
     public function setImagePage($width, $height, $x, $y)
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        //throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3172,7 +3339,31 @@ class Imagick implements Iterator
      */
     public function setResourceLimit($type, $limit)
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        switch($type) {
+            case self::RESOURCETYPE_UNDEFINED:
+                return;
+            break;
+            case self::RESOURCETYPE_AREA:
+                $type = 'area';
+            break;
+            case self::RESOURCETYPE_DISK:
+                $type = 'disk';
+            break;
+            case self::RESOURCETYPE_FILE:
+                $type = '';
+            break;
+            case self::RESOURCETYPE_MAP:
+                $type = 'map';
+            break;
+            case self::RESOURCETYPE_MEMORY:
+                $type = 'memory';
+            break;
+        }
+        
+        $this->addConvertCommand('-limit '.$type.' '.$limit);
+        
+        //Somehow check that it's valid?
+        return true;
     }
 
     /**
@@ -3191,7 +3382,11 @@ class Imagick implements Iterator
      */
     public function setSize($columns, $rows)
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $argument = new Argument('size', $columns.'x'.$rows);
+        $this->addConvertArgument($argument);
+
+        //Somehow check that it's valid?
+        return true;
     }
 
     /**
@@ -3376,7 +3571,10 @@ class Imagick implements Iterator
     /** @return bool */
     public function stripImage()
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $this->addConvertCommand('-strip');
+
+        //Somehow check that it's valid?
+        return true;
     }
 
     /**
@@ -3572,7 +3770,10 @@ class Imagick implements Iterator
      */
     public function writeImage($filename = NULL)
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $convert_command = $this->buildConvertCommand(key($this->files), current($this->files), ($filename !== NULL ? $filename : ($this->filename !== NULL ? $this->filename : '-')));
+        $shell = shell_exec($convert_command);
+        
+        return (bool) $shell;
     }
 
     /**
@@ -3652,6 +3853,22 @@ class Imagick implements Iterator
         }
     }
 
+    /**
+     * @param Argument $argument
+     * @param bool $all_images
+     */
+    private function addConvertCommand($argument, $all_images = false)
+    {
+        if ($all_images) {
+            foreach ($this->files as &$file) {
+                $file[] = $argument;
+            }
+        } else {
+            $current = key($this->files);
+            $this->files[$current][] = $argument;
+        }
+    }
+
 
     /**
      * @param string $output_file
@@ -3659,7 +3876,8 @@ class Imagick implements Iterator
      */
     private static function buildConvertCommand($input_file, $convert_args, $output_file)
     {
-        return sprintf('%s %s %s %s', self::$convert_path, implode(' ', $convert_args), $input_file, $output_file);
+        $args = implode(' ', $convert_args);
+        return sprintf('%s %s %s %s', self::$convert_path, $input_file, $args, (strpos($args, 'info:') !== false ? '' : $output_file));
     }
 
 }

@@ -19,7 +19,7 @@ class Argument {
     /**
      * @return string
      */
-    public function compile(){
+    public function compile() {
         return sprintf('-%s "%s"', $this->name, $this->value);
     }
 
