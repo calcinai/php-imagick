@@ -412,8 +412,6 @@ class Imagick implements Iterator
     private $gravity;
 
     public static $convert_path;
-    
-    public static $throw_exception = true;
 
     /**
      * Imagick constructor.
@@ -476,7 +474,7 @@ class Imagick implements Iterator
      */
     public function adaptiveBlurImage($radius, $sigma, $channel = Imagick::CHANNEL_DEFAULT)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -487,7 +485,7 @@ class Imagick implements Iterator
      */
     public function adaptiveResizeImage($columns, $rows, $bestfit = false)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -498,7 +496,7 @@ class Imagick implements Iterator
      */
     public function adaptiveSharpenImage($radius, $sigma, $channel = Imagick::CHANNEL_DEFAULT)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -509,7 +507,7 @@ class Imagick implements Iterator
      */
     public function adaptiveThresholdImage($width, $height, $offset)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -529,7 +527,7 @@ class Imagick implements Iterator
      */
     public function addNoiseImage($noise_type, $channel = Imagick::CHANNEL_DEFAULT)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -538,7 +536,7 @@ class Imagick implements Iterator
      */
     public function affineTransformImage($matrix)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -547,7 +545,7 @@ class Imagick implements Iterator
      */
     public function animateImages($x_server)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -560,7 +558,7 @@ class Imagick implements Iterator
      */
     public function annotateImage($draw_settings, $x, $y, $angle, $text)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -569,7 +567,7 @@ class Imagick implements Iterator
      */
     public function appendImages($stack = false)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -577,13 +575,13 @@ class Imagick implements Iterator
      */
     public function autoLevelImage($CHANNEL = Imagick::CHANNEL_DEFAULT)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return Imagick */
     public function averageImages()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -592,7 +590,7 @@ class Imagick implements Iterator
      */
     public function blackThresholdImage($threshold)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -600,7 +598,7 @@ class Imagick implements Iterator
      */
     public function blueShiftImage($factor = 1.5)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -611,7 +609,7 @@ class Imagick implements Iterator
      */
     public function blurImage($radius, $sigma, $channel)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -622,7 +620,7 @@ class Imagick implements Iterator
      */
     public function borderImage($bordercolor, $width, $height)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -632,7 +630,7 @@ class Imagick implements Iterator
      */
     public function brightnessContrastImage($brightness, $contrast, $CHANNEL = Imagick::CHANNEL_DEFAULT)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -642,7 +640,7 @@ class Imagick implements Iterator
      */
     public function charcoalImage($radius, $sigma)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -654,7 +652,7 @@ class Imagick implements Iterator
      */
     public function chopImage($width, $height, $x, $y)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -662,7 +660,7 @@ class Imagick implements Iterator
      */
     public function clampImage($CHANNEL = Imagick::CHANNEL_DEFAULT)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
@@ -675,7 +673,7 @@ class Imagick implements Iterator
     /** @return bool */
     public function clipImage()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -684,7 +682,7 @@ class Imagick implements Iterator
      */
     public function clipImagePath($pathname, $inside)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -694,13 +692,13 @@ class Imagick implements Iterator
      */
     public function clipPathImage($pathname, $inside)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return Imagick */
     public function __clone()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -710,13 +708,13 @@ class Imagick implements Iterator
      */
     public function clutImage($lookup_table, $channel = Imagick::CHANNEL_DEFAULT)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return Imagick */
     public function coalesceImages()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -729,7 +727,7 @@ class Imagick implements Iterator
      */
     public function colorFloodfillImage($fill, $fuzz, $bordercolor, $x, $y)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -739,7 +737,7 @@ class Imagick implements Iterator
      */
     public function colorizeImage($colorize, $opacity)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -747,7 +745,7 @@ class Imagick implements Iterator
      */
     public function colorMatrixImage($color_matrix = Imagick::CHANNEL_DEFAULT)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -756,7 +754,7 @@ class Imagick implements Iterator
      */
     public function combineImages($channelType)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -765,7 +763,7 @@ class Imagick implements Iterator
      */
     public function commentImage($comment)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -776,7 +774,7 @@ class Imagick implements Iterator
      */
     public function compareImageChannels($image, $channelType, $metricType)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -785,7 +783,7 @@ class Imagick implements Iterator
      */
     public function compareImageLayers($method)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -795,7 +793,7 @@ class Imagick implements Iterator
      */
     public function compareImages($compare, $metric)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -853,7 +851,7 @@ class Imagick implements Iterator
      */
     public function contrastImage($sharpen)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -864,7 +862,7 @@ class Imagick implements Iterator
      */
     public function contrastStretchImage($black_point, $white_point, $channel = Imagick::CHANNEL_ALL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -874,7 +872,7 @@ class Imagick implements Iterator
      */
     public function convolveImage($kernel, $channel = Imagick::CHANNEL_ALL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -882,7 +880,7 @@ class Imagick implements Iterator
      */
     public function count($mode)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -926,7 +924,7 @@ class Imagick implements Iterator
     /** @return Imagick */
     public function current()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -935,7 +933,7 @@ class Imagick implements Iterator
      */
     public function cycleColormapImage($displace)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -944,13 +942,13 @@ class Imagick implements Iterator
      */
     public function decipherImage($passphrase)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return Imagick */
     public function deconstructImages()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -959,7 +957,7 @@ class Imagick implements Iterator
      */
     public function deleteImageArtifact($artifact)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -967,7 +965,7 @@ class Imagick implements Iterator
      */
     public function deleteImageProperty($name)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -976,13 +974,13 @@ class Imagick implements Iterator
      */
     public function deskewImage($threshold)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function despeckleImage()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @description Deprecated in favor of Imagick::clear */
@@ -1056,7 +1054,7 @@ class Imagick implements Iterator
      */
     public function drawImage($draw)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1065,7 +1063,7 @@ class Imagick implements Iterator
      */
     public function edgeImage($radius)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1075,7 +1073,7 @@ class Imagick implements Iterator
      */
     public function embossImage($radius, $sigma)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1084,19 +1082,19 @@ class Imagick implements Iterator
      */
     public function encipherImage($passphrase)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function enhanceImage()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function equalizeImage()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1107,7 +1105,7 @@ class Imagick implements Iterator
      */
     public function evaluateImage($op, $constant, $channel = Imagick::CHANNEL_ALL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1121,7 +1119,7 @@ class Imagick implements Iterator
      */
     public function exportImagickPixels($x, $y, $width, $height, $map, $STORAGE)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1133,7 +1131,7 @@ class Imagick implements Iterator
      */
     public function extentImage($width, $height, $x, $y)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1142,19 +1140,19 @@ class Imagick implements Iterator
      */
     public function filter($ImagickKernel, $CHANNEL = Imagick::CHANNEL_DEFAULT)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return Imagick */
     public function flattenImages()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function flipImage()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1169,13 +1167,13 @@ class Imagick implements Iterator
      */
     public function floodFillPaintImage($fill, $fuzz, $target, $x, $y, $invert, $channel = Imagick::CHANNEL_DEFAULT)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function flopImage()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1183,7 +1181,7 @@ class Imagick implements Iterator
      */
     public function forwardFourierTransformimage($magnitude)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1196,7 +1194,7 @@ class Imagick implements Iterator
      */
     public function frameImage($matte_color, $width, $height, $inner_bevel, $outer_bevel)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1207,7 +1205,7 @@ class Imagick implements Iterator
      */
     public function functionImage($function, $arguments, $channel = Imagick::CHANNEL_DEFAULT)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1217,7 +1215,7 @@ class Imagick implements Iterator
      */
     public function fxImage($expression, $channel = Imagick::CHANNEL_ALL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1227,7 +1225,7 @@ class Imagick implements Iterator
      */
     public function gammaImage($gamma, $channel = Imagick::CHANNEL_ALL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1238,67 +1236,67 @@ class Imagick implements Iterator
      */
     public function gaussianBlurImage($radius, $sigma, $channel = Imagick::CHANNEL_ALL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getColorspace()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getCompression()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getCompressionQuality()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return string */
     public function getCopyright()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return string */
     public function getFilename()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return string */
     public function getFont()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return string */
     public function getFormat()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getGravity()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return string */
     public function getHomeURL()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return Imagick */
     public function getImage()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
@@ -1322,7 +1320,7 @@ class Imagick implements Iterator
      */
     public function getImageArtifact($artifact)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1331,13 +1329,13 @@ class Imagick implements Iterator
      */
     public function getImageAttribute($key)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return ImagickPixel */
     public function getImageBackgroundColor()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return string */
@@ -1350,13 +1348,13 @@ class Imagick implements Iterator
     /** @return array */
     public function getImageBluePrimary()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return ImagickPixel */
     public function getImageBorderColor()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1365,7 +1363,7 @@ class Imagick implements Iterator
      */
     public function getImageChannelDepth($channel)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1376,7 +1374,7 @@ class Imagick implements Iterator
      */
     public function getImageChannelDistortion($reference, $channel, $metric)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1387,7 +1385,7 @@ class Imagick implements Iterator
      */
     public function getImageChannelDistortions($reference, $metric, $channel = Imagick::CHANNEL_DEFAULT)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1396,7 +1394,7 @@ class Imagick implements Iterator
      */
     public function getImageChannelExtrema($channel)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1405,7 +1403,7 @@ class Imagick implements Iterator
      */
     public function getImageChannelKurtosis($channel = Imagick::CHANNEL_DEFAULT)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1414,7 +1412,7 @@ class Imagick implements Iterator
      */
     public function getImageChannelMean($channel)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1423,19 +1421,19 @@ class Imagick implements Iterator
      */
     public function getImageChannelRange($channel)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return array */
     public function getImageChannelStatistics()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return Imagick */
     public function getImageClipMask()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1444,55 +1442,55 @@ class Imagick implements Iterator
      */
     public function getImageColormapColor($index)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageColors()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageColorspace()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageCompose()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageCompression()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageCompressionQuality()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageDelay()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageDepth()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageDispose()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1502,37 +1500,37 @@ class Imagick implements Iterator
      */
     public function getImageDistortion($reference, $metric)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return array */
     public function getImageExtrema()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return string */
     public function getImageFilename()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return string */
     public function getImageFormat()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return float */
     public function getImageGamma()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return array */
     public function getImageGeometry()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
@@ -1544,7 +1542,7 @@ class Imagick implements Iterator
     /** @return array */
     public function getImageGreenPrimary()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
@@ -1565,61 +1563,61 @@ class Imagick implements Iterator
     /** @return array */
     public function getImageHistogram()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageIndex()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageInterlaceScheme()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageInterpolateMethod()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageIterations()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageLength()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return string */
     public function getImageMagickLicense()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function getImageMatte()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return ImagickPixel */
     public function getImageMatteColor()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return string */
     public function getImageMimeType()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
@@ -1640,7 +1638,7 @@ class Imagick implements Iterator
     /** @return array */
     public function getImagePage()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1650,7 +1648,7 @@ class Imagick implements Iterator
      */
     public function getImagickPixelColor($x, $y)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1659,7 +1657,7 @@ class Imagick implements Iterator
      */
     public function getImageProfile($name)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1669,7 +1667,7 @@ class Imagick implements Iterator
      */
     public function getImageProfiles($pattern = "*", $only_names = true)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1679,7 +1677,7 @@ class Imagick implements Iterator
      */
     public function getImageProperties($pattern = "*", $only_names = true)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1688,13 +1686,13 @@ class Imagick implements Iterator
      */
     public function getImageProperty($name)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return array */
     public function getImageRedPrimary()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1706,79 +1704,79 @@ class Imagick implements Iterator
      */
     public function getImageRegion($width, $height, $x, $y)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageRenderingIntent()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return array */
     public function getImageResolution()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return string */
     public function getImagesBlob()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageScene()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return string */
     public function getImageSignature()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageSize()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageTicksPerSecond()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return float */
     public function getImageTotalInkDensity()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageType()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageUnits()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getImageVirtualPixelMethod()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return array */
     public function getImageWhitePoint()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
@@ -1799,19 +1797,19 @@ class Imagick implements Iterator
     /** @return int */
     public function getInterlaceScheme()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getIteratorIndex()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getNumberImages()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1820,25 +1818,25 @@ class Imagick implements Iterator
      */
     public function getOption($key)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return string */
     public function getPackageName()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return array */
     public function getPage()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return ImagickPixelIterator */
     public function getPixelIterator()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1850,31 +1848,31 @@ class Imagick implements Iterator
      */
     public function getPixelRegionIterator($x, $y, $columns, $rows)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return float */
     public function getPointSize()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public static function getQuantum()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return array */
     public function getQuantumDepth()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return array */
     public function getQuantumRange()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1883,13 +1881,13 @@ class Imagick implements Iterator
      */
     public static function getRegistry($key)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return string */
     public function getReleaseDate()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1898,7 +1896,7 @@ class Imagick implements Iterator
      */
     public function getResource($type)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1907,31 +1905,31 @@ class Imagick implements Iterator
      */
     public function getResourceLimit($type)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return array */
     public function getSamplingFactors()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return array */
     public function getSize()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return int */
     public function getSizeOffset()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return array */
     public function getVersion()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1941,19 +1939,19 @@ class Imagick implements Iterator
      */
     public function haldClutImage($clut, $channel = Imagick::CHANNEL_DEFAULT)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function hasNextImage()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function hasPreviousImage()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1962,7 +1960,7 @@ class Imagick implements Iterator
      */
     public function identifyFormat($embedText)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1971,7 +1969,7 @@ class Imagick implements Iterator
      */
     public function identifyImage($appendRawOutput = false)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1980,7 +1978,7 @@ class Imagick implements Iterator
      */
     public function implodeImage($radius)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -1995,7 +1993,7 @@ class Imagick implements Iterator
      */
     public function importImagickPixels($x, $y, $width, $height, $map, $storage, $pixels)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2004,7 +2002,7 @@ class Imagick implements Iterator
      */
     public function inverseFourierTransformImage($complement, $magnitude)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2013,7 +2011,7 @@ class Imagick implements Iterator
      */
     public function labelImage($label)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2025,7 +2023,7 @@ class Imagick implements Iterator
      */
     public function levelImage($blackPoint, $gamma, $whitePoint, $channel = Imagick::CHANNEL_ALL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2035,7 +2033,7 @@ class Imagick implements Iterator
      */
     public function linearStretchImage($blackPoint, $whitePoint)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2047,19 +2045,19 @@ class Imagick implements Iterator
      */
     public function liquidRescaleImage($width, $height, $delta_x, $rigidity)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return array */
     public static function listRegistry()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function magnifyImage()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2069,7 +2067,7 @@ class Imagick implements Iterator
      */
     public function mapImage($map, $dither)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2082,7 +2080,7 @@ class Imagick implements Iterator
      */
     public function matteFloodfillImage($alpha, $fuzz, $bordercolor, $x, $y)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2091,7 +2089,7 @@ class Imagick implements Iterator
      */
     public function medianFilterImage($radius)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2100,13 +2098,13 @@ class Imagick implements Iterator
      */
     public function mergeImageLayers($layer_method)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function minifyImage()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2117,7 +2115,7 @@ class Imagick implements Iterator
      */
     public function modulateImage($brightness, $saturation, $hue)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2130,7 +2128,7 @@ class Imagick implements Iterator
      */
     public function montageImage($draw, $tile_geometry, $thumbnail_geometry, $mode, $frame)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2139,7 +2137,7 @@ class Imagick implements Iterator
      */
     public function morphImages($number_frames)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2150,13 +2148,13 @@ class Imagick implements Iterator
      */
     public function morphology($morphologyMethod, $iterations, $ImagickKernel, $CHANNEL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return Imagick */
     public function mosaicImages()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2168,7 +2166,7 @@ class Imagick implements Iterator
      */
     public function motionBlurImage($radius, $sigma, $angle, $channel = Imagick::CHANNEL_DEFAULT)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2178,7 +2176,7 @@ class Imagick implements Iterator
      */
     public function negateImage($gray, $channel = Imagick::CHANNEL_ALL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2208,13 +2206,13 @@ class Imagick implements Iterator
      */
     public function newPseudoImage($columns, $rows, $pseudoString)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function nextImage()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2223,7 +2221,7 @@ class Imagick implements Iterator
      */
     public function normalizeImage($channel = Imagick::CHANNEL_ALL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2232,7 +2230,7 @@ class Imagick implements Iterator
      */
     public function oilPaintImage($radius)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2245,13 +2243,13 @@ class Imagick implements Iterator
      */
     public function opaquePaintImage($target, $fill, $fuzz, $invert, $channel = Imagick::CHANNEL_DEFAULT)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function optimizeImageLayers()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2261,7 +2259,7 @@ class Imagick implements Iterator
      */
     public function orderedPosterizeImage($threshold_map, $channel = Imagick::CHANNEL_ALL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2275,7 +2273,7 @@ class Imagick implements Iterator
      */
     public function paintFloodfillImage($fill, $fuzz, $bordercolor, $x, $y, $channel = Imagick::CHANNEL_ALL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2287,7 +2285,7 @@ class Imagick implements Iterator
      */
     public function paintOpaqueImage($target, $fill, $fuzz, $channel = Imagick::CHANNEL_ALL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2298,7 +2296,7 @@ class Imagick implements Iterator
      */
     public function paintTransparentImage($target, $alpha, $fuzz)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2307,7 +2305,7 @@ class Imagick implements Iterator
      */
     public function pingImage($filename)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2316,7 +2314,7 @@ class Imagick implements Iterator
      */
     public function pingImageBlob($image)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2326,7 +2324,7 @@ class Imagick implements Iterator
      */
     public function pingImageFile($filehandle, $fileName)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2336,7 +2334,7 @@ class Imagick implements Iterator
      */
     public function polaroidImage($properties, $angle)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2346,7 +2344,7 @@ class Imagick implements Iterator
      */
     public function posterizeImage($levels, $dither)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2355,13 +2353,13 @@ class Imagick implements Iterator
      */
     public function previewImages($preview)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function previousImage()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2371,7 +2369,7 @@ class Imagick implements Iterator
      */
     public function profileImage($name, $profile)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2384,7 +2382,7 @@ class Imagick implements Iterator
      */
     public function quantizeImage($numberColors, $colorspace, $treedepth, $dither, $measureError)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2397,7 +2395,7 @@ class Imagick implements Iterator
      */
     public function quantizeImages($numberColors, $colorspace, $treedepth, $dither, $measureError)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2408,7 +2406,7 @@ class Imagick implements Iterator
      */
     public function queryFontMetrics($properties, $text, $multiline)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2417,7 +2415,7 @@ class Imagick implements Iterator
      */
     public function queryFonts($pattern = "*")
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2426,7 +2424,7 @@ class Imagick implements Iterator
      */
     public function queryFormats($pattern = "*")
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2436,7 +2434,7 @@ class Imagick implements Iterator
      */
     public function radialBlurImage($angle, $channel = Imagick::CHANNEL_ALL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2449,7 +2447,7 @@ class Imagick implements Iterator
      */
     public function raiseImage($width, $height, $x, $y, $raise)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2460,7 +2458,7 @@ class Imagick implements Iterator
      */
     public function randomThresholdImage($low, $high, $channel = Imagick::CHANNEL_ALL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2510,7 +2508,7 @@ class Imagick implements Iterator
      */
     public function readImageFile($filehandle, $fileName = null)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2519,7 +2517,7 @@ class Imagick implements Iterator
      */
     public function readImages($filenames)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2528,7 +2526,7 @@ class Imagick implements Iterator
      */
     public function recolorImage($matrix)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2537,7 +2535,7 @@ class Imagick implements Iterator
      */
     public function reduceNoiseImage($radius)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2547,13 +2545,13 @@ class Imagick implements Iterator
      */
     public function remapImage($replacement, $DITHER)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function removeImage()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2562,13 +2560,13 @@ class Imagick implements Iterator
      */
     public function removeImageProfile($name)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function render()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2580,7 +2578,7 @@ class Imagick implements Iterator
      */
     public function resampleImage($x_resolution, $y_resolution, $filter, $blur)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2589,7 +2587,7 @@ class Imagick implements Iterator
      */
     public function resetImagePage($page)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2621,7 +2619,7 @@ class Imagick implements Iterator
      */
     public function rollImage($x, $y)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2631,7 +2629,7 @@ class Imagick implements Iterator
      */
     public function rotateImage($background, $degrees)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2640,7 +2638,7 @@ class Imagick implements Iterator
      */
     public function rotationalBlurImage($angle, $CHANNEL = Imagick::CHANNEL_DEFAULT)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2653,7 +2651,7 @@ class Imagick implements Iterator
      */
     public function roundCorners($x_rounding, $y_rounding, $stroke_width = 10, $displace = 5, $size_correction = -6)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2663,7 +2661,7 @@ class Imagick implements Iterator
      */
     public function sampleImage($columns, $rows)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2674,7 +2672,7 @@ class Imagick implements Iterator
      */
     public function scaleImage($cols, $rows, $bestfit = false)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2686,7 +2684,7 @@ class Imagick implements Iterator
      */
     public function segmentImage($COLORSPACE, $cluster_threshold, $smooth_threshold, $verbose = false)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2697,7 +2695,7 @@ class Imagick implements Iterator
      */
     public function selectiveBlurImage($radius, $sigma, $threshold, $CHANNEL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2706,7 +2704,7 @@ class Imagick implements Iterator
      */
     public function separateImageChannel($channel)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2715,7 +2713,7 @@ class Imagick implements Iterator
      */
     public function sepiaToneImage($threshold)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2724,7 +2722,7 @@ class Imagick implements Iterator
      */
     public function setBackgroundColor($background)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2733,7 +2731,7 @@ class Imagick implements Iterator
      */
     public function setColorspace($COLORSPACE)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2742,7 +2740,7 @@ class Imagick implements Iterator
      */
     public function setCompression($compression)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2751,7 +2749,7 @@ class Imagick implements Iterator
      */
     public function setCompressionQuality($quality)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2760,13 +2758,13 @@ class Imagick implements Iterator
      */
     public function setFilename($filename)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function setFirstIterator()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2775,7 +2773,7 @@ class Imagick implements Iterator
      */
     public function setFont($font)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2804,7 +2802,7 @@ class Imagick implements Iterator
      */
     public function setImage($replace)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2813,7 +2811,7 @@ class Imagick implements Iterator
      */
     public function setImageAlphaChannel($mode) //?TODO
     {
-        //if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        //throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
         
         $argument = new Argument('alpha', 'on');
         $this->addConvertArgument($argument);
@@ -2828,7 +2826,7 @@ class Imagick implements Iterator
      */
     public function setImageArtifact($artifact, $value)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2837,7 +2835,7 @@ class Imagick implements Iterator
      */
     public function setImageAttribute($key, $value)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2859,7 +2857,7 @@ class Imagick implements Iterator
      */
     public function setImageBias($bias)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2867,7 +2865,7 @@ class Imagick implements Iterator
      */
     public function setImageBiasQuantum($bias)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2877,7 +2875,7 @@ class Imagick implements Iterator
      */
     public function setImageBluePrimary($x, $y)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2886,7 +2884,7 @@ class Imagick implements Iterator
      */
     public function setImageBorderColor($border)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2896,7 +2894,7 @@ class Imagick implements Iterator
      */
     public function setImageChannelDepth($channel, $depth)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2905,7 +2903,7 @@ class Imagick implements Iterator
      */
     public function setImageClipMask($clip_mask)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2915,7 +2913,7 @@ class Imagick implements Iterator
      */
     public function setImageColormapColor($index, $color)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2924,7 +2922,7 @@ class Imagick implements Iterator
      */
     public function setImageColorspace($colorspace)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2933,7 +2931,7 @@ class Imagick implements Iterator
      */
     public function setImageCompose($compose)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2942,7 +2940,7 @@ class Imagick implements Iterator
      */
     public function setImageCompression($compression)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2951,7 +2949,7 @@ class Imagick implements Iterator
      */
     public function setImageCompressionQuality($quality)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2960,7 +2958,7 @@ class Imagick implements Iterator
      */
     public function setImageDelay($delay)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2969,7 +2967,7 @@ class Imagick implements Iterator
      */
     public function setImageDepth($depth)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -2978,7 +2976,7 @@ class Imagick implements Iterator
      */
     public function setImageDispose($dispose)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3018,7 +3016,7 @@ class Imagick implements Iterator
      */
     public function setImageGamma($gamma)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3027,7 +3025,7 @@ class Imagick implements Iterator
      */
     public function setImageGravity($gravity)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3037,7 +3035,7 @@ class Imagick implements Iterator
      */
     public function setImageGreenPrimary($x, $y)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3046,7 +3044,7 @@ class Imagick implements Iterator
      */
     public function setImageIndex($index)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3055,7 +3053,7 @@ class Imagick implements Iterator
      */
     public function setImageInterlaceScheme($interlace_scheme)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3064,7 +3062,7 @@ class Imagick implements Iterator
      */
     public function setImageInterpolateMethod($method)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3073,7 +3071,7 @@ class Imagick implements Iterator
      */
     public function setImageIterations($iterations)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3082,7 +3080,7 @@ class Imagick implements Iterator
      */
     public function setImageMatte($matte)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3091,7 +3089,7 @@ class Imagick implements Iterator
      */
     public function setImageMatteColor($matte)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3100,7 +3098,7 @@ class Imagick implements Iterator
      */
     public function setImageOpacity($opacity)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3145,7 +3143,7 @@ class Imagick implements Iterator
      */
     public function setImagePage($width, $height, $x, $y)
     {
-        //if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        //throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3155,7 +3153,7 @@ class Imagick implements Iterator
      */
     public function setImageProfile($name, $profile)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3165,7 +3163,7 @@ class Imagick implements Iterator
      */
     public function setImageProperty($name, $value)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3175,7 +3173,7 @@ class Imagick implements Iterator
      */
     public function setImageRedPrimary($x, $y)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3184,7 +3182,7 @@ class Imagick implements Iterator
      */
     public function setImageRenderingIntent($rendering_intent)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3194,7 +3192,7 @@ class Imagick implements Iterator
      */
     public function setImageResolution($x_resolution, $y_resolution)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3203,7 +3201,7 @@ class Imagick implements Iterator
      */
     public function setImageScene($scene)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3212,7 +3210,7 @@ class Imagick implements Iterator
      */
     public function setImageTicksPerSecond($ticks_per_second)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3221,7 +3219,7 @@ class Imagick implements Iterator
      */
     public function setImageType($image_type)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3230,7 +3228,7 @@ class Imagick implements Iterator
      */
     public function setImageUnits($units)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3239,7 +3237,7 @@ class Imagick implements Iterator
      */
     public function setImageVirtualPixelMethod($method)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3249,7 +3247,7 @@ class Imagick implements Iterator
      */
     public function setImageWhitePoint($x, $y)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3258,7 +3256,7 @@ class Imagick implements Iterator
      */
     public function setInterlaceScheme($interlace_scheme)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3267,13 +3265,13 @@ class Imagick implements Iterator
      */
     public function setIteratorIndex($index)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function setLastIterator()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3283,7 +3281,7 @@ class Imagick implements Iterator
      */
     public function setOption($key, $value)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3295,7 +3293,7 @@ class Imagick implements Iterator
      */
     public function setPage($width, $height, $x, $y)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3304,7 +3302,7 @@ class Imagick implements Iterator
      */
     public function setPointSize($point_size)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3312,7 +3310,7 @@ class Imagick implements Iterator
      */
     public function setProgressMonitor($callback)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3321,7 +3319,7 @@ class Imagick implements Iterator
      */
     public static function setRegistry($key, $value)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3331,7 +3329,7 @@ class Imagick implements Iterator
      */
     public function setResolution($x_resolution, $y_resolution)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3374,7 +3372,7 @@ class Imagick implements Iterator
      */
     public function setSamplingFactors($factors)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3399,7 +3397,7 @@ class Imagick implements Iterator
      */
     public function setSizeOffset($columns, $rows, $offset)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3408,7 +3406,7 @@ class Imagick implements Iterator
      */
     public function setType($image_type)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3419,7 +3417,7 @@ class Imagick implements Iterator
      */
     public function shadeImage($gray, $azimuth, $elevation)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3431,7 +3429,7 @@ class Imagick implements Iterator
      */
     public function shadowImage($opacity, $sigma, $x, $y)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3442,7 +3440,7 @@ class Imagick implements Iterator
      */
     public function sharpenImage($radius, $sigma, $channel = Imagick::CHANNEL_ALL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3452,7 +3450,7 @@ class Imagick implements Iterator
      */
     public function shaveImage($columns, $rows)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3463,7 +3461,7 @@ class Imagick implements Iterator
      */
     public function shearImage($background, $x_shear, $y_shear)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3475,7 +3473,7 @@ class Imagick implements Iterator
      */
     public function sigmoidalContrastImage($sharpen, $alpha, $beta, $channel = Imagick::CHANNEL_ALL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3486,7 +3484,7 @@ class Imagick implements Iterator
      */
     public function sketchImage($radius, $sigma, $angle)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3496,7 +3494,7 @@ class Imagick implements Iterator
      */
     public function smushImages($stack, $offset)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3505,7 +3503,7 @@ class Imagick implements Iterator
      */
     public function solarizeImage($threshold)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3516,7 +3514,7 @@ class Imagick implements Iterator
      */
     public function sparseColorImage($SPARSE_METHOD, $arguments, $channel = Imagick::CHANNEL_DEFAULT)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3528,7 +3526,7 @@ class Imagick implements Iterator
      */
     public function spliceImage($width, $height, $x, $y)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3537,7 +3535,7 @@ class Imagick implements Iterator
      */
     public function spreadImage($radius)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3548,7 +3546,7 @@ class Imagick implements Iterator
      */
     public function statisticImage($type, $width, $height, $CHANNEL = Imagick::CHANNEL_DEFAULT)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3558,7 +3556,7 @@ class Imagick implements Iterator
      */
     public function steganoImage($watermark_wand, $offset)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3567,7 +3565,7 @@ class Imagick implements Iterator
      */
     public function stereoImage($offset_wand)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
@@ -3587,7 +3585,7 @@ class Imagick implements Iterator
      */
     public function subImageMatch($Imagick, array &$offset, &$similarity)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3596,7 +3594,7 @@ class Imagick implements Iterator
      */
     public function swirlImage($degrees)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3605,7 +3603,7 @@ class Imagick implements Iterator
      */
     public function textureImage($texture_wand)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3615,7 +3613,7 @@ class Imagick implements Iterator
      */
     public function thresholdImage($threshold, $channel = Imagick::CHANNEL_ALL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3649,13 +3647,13 @@ class Imagick implements Iterator
      */
     public function tintImage($tint, $opacity)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return string */
     public function __toString()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3665,7 +3663,7 @@ class Imagick implements Iterator
      */
     public function transformImage($crop, $geometry)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3674,7 +3672,7 @@ class Imagick implements Iterator
      */
     public function transformImageColorspace($colorspace)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3686,19 +3684,19 @@ class Imagick implements Iterator
      */
     public function transparentPaintImage($target, $alpha, $fuzz, $invert)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function transposeImage()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function transverseImage()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3707,13 +3705,13 @@ class Imagick implements Iterator
      */
     public function trimImage($fuzz)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function uniqueImageColors()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3726,13 +3724,13 @@ class Imagick implements Iterator
      */
     public function unsharpMaskImage($radius, $sigma, $amount, $threshold, $channel = Imagick::CHANNEL_ALL)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
     public function valid()
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3744,7 +3742,7 @@ class Imagick implements Iterator
      */
     public function vignetteImage($blackPoint, $whitePoint, $x, $y)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3754,7 +3752,7 @@ class Imagick implements Iterator
      */
     public function waveImage($amplitude, $length)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3763,7 +3761,7 @@ class Imagick implements Iterator
      */
     public function whiteThresholdImage($threshold)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3784,7 +3782,7 @@ class Imagick implements Iterator
      */
     public function writeImageFile($filehandle)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3794,7 +3792,7 @@ class Imagick implements Iterator
      */
     public function writeImages($filename, $adjoin)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3803,7 +3801,7 @@ class Imagick implements Iterator
      */
     public function writeImagesFile($filehandle)
     {
-        if(self::$throw_exception) throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
