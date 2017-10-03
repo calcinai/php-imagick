@@ -1305,12 +1305,14 @@ class Imagick implements Iterator
     public function getImageAlphaChannel() //?TODO
     {
         $files = $this->files;
+        
         $current = key($files);
         $files[$current][] = new Argument('format', '%[channels]');
         $files[$current][] = 'info:';
         
         $convert_command = $this->buildConvertCommand(key($files), current($files), '-');
         $channels = shell_exec($convert_command);
+        
         return (int) strpos($channels, 'rgba') !== false;
     }
 
@@ -1555,7 +1557,7 @@ class Imagick implements Iterator
         
         $convert_command = $this->buildConvertCommand(key($files), current($files), '-');
         $size = shell_exec($convert_command);
-        list($width, $height) = explode('x', $size);
+        list($width, $height) = explode('x', str_replace(' ', '', $size));
         
         return (int) $height;
     }
@@ -1789,7 +1791,7 @@ class Imagick implements Iterator
         
         $convert_command = $this->buildConvertCommand(key($files), current($files), '-');
         $size = shell_exec($convert_command);
-        list($width, $height) = explode('x', $size);
+        list($width, $height) = explode('x', str_replace(' ', '', $size));
         
         return (int) $width;
     }
@@ -2467,7 +2469,14 @@ class Imagick implements Iterator
      */
     public function readImage($filename)
     {
-        $this->files[$filename] = [];
+        if(key($this->files) === "") {
+            $this->files[$filename] = current($this->files);
+            
+            $this->files[''] = null;
+            unset($this->files['']);
+        } else {
+            $this->files[$filename] = [];
+        }
         
         return true;
     }
@@ -2486,7 +2495,7 @@ class Imagick implements Iterator
         }
 
         if (file_put_contents($filename, $image)) {
-            $this->files[$filename] = [];
+            $this->readImage($filename);
             $this->tmp_files[] = $filename;
             return true;
         }
@@ -2593,7 +2602,6 @@ class Imagick implements Iterator
      */
     public function resizeImage($columns, $rows, $filter, $blur, $bestfit = false)
     {
-
         $geometry = new Geometry($columns, $rows);
 
         if ($bestfit) {
@@ -3354,9 +3362,8 @@ class Imagick implements Iterator
             break;
         }
         
-        $argument = new Argument('limit', $type.' '.$limit);
-        $this->addConvertArgument($argument);
-
+        $this->addConvertCommand('-limit '.$type.' '.$limit);
+        
         //Somehow check that it's valid?
         return true;
     }
@@ -3766,7 +3773,9 @@ class Imagick implements Iterator
     public function writeImage($filename = NULL)
     {
         $convert_command = $this->buildConvertCommand(key($this->files), current($this->files), ($filename !== NULL ? $filename : ($this->filename !== NULL ? $this->filename : '-')));
-        return (bool) shell_exec($convert_command);
+        $shell = shell_exec($convert_command);
+        
+        return (bool) $shell;
     }
 
     /**
@@ -3869,7 +3878,8 @@ class Imagick implements Iterator
      */
     private static function buildConvertCommand($input_file, $convert_args, $output_file)
     {
-        return sprintf('%s %s %s %s', self::$convert_path, implode(' ', $convert_args), $input_file, $output_file);
+        $args = implode(' ', $convert_args);
+        return sprintf('%s %s %s %s', self::$convert_path, $input_file, $args, (strpos($args, 'info:') !== false ? '' : $output_file));
     }
 
 }
