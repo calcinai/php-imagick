@@ -1343,7 +1343,7 @@ class Imagick implements Iterator
     /** @return string */
     public function getImageBlob()
     {
-        $convert_command = $this->buildConvertCommand($files, '-');
+        $convert_command = $this->buildConvertCommand($this->files, '-');
         return shell_exec($convert_command);
     }
 
@@ -3774,7 +3774,7 @@ class Imagick implements Iterator
             $this->filename = $filename;
         }
         
-        $convert_command = $this->buildConvertCommand($files, ($this->filename !== NULL ? $this->filename : '-'));
+        $convert_command = $this->buildConvertCommand($this->files, ($this->filename !== NULL ? $this->filename : '-'));
         $shell = shell_exec($convert_command);
         
         return (bool) $shell;
@@ -3788,7 +3788,7 @@ class Imagick implements Iterator
     {
         $filename = tempnam(sys_get_temp_dir(), 'image');
         
-        $convert_command = $this->buildConvertCommand($files, $filename);
+        $convert_command = $this->buildConvertCommand($this->files, $filename);
         $image = shell_exec($convert_command);
         
         if(!file_exists($filename)) {
