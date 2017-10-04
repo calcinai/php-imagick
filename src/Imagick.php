@@ -804,7 +804,7 @@ class Imagick implements Iterator
      * @param int $channel
      * @return bool
      */
-    public function compositeImage($composite_object, $composite, $x, $y, $channel = Imagick::CHANNEL_ALL) //?TODO
+    public function compositeImage($composite_object, $composite, $x, $y, $channel = Imagick::CHANNEL_ALL)
     {
         $rfl = new ReflectionClass(self::class);
         $constants = $rfl->getConstants();
@@ -1117,7 +1117,7 @@ class Imagick implements Iterator
      * @param int $STORAGE
      * @return bool
      */
-    public function exportImagickPixels($x, $y, $width, $height, $map, $STORAGE)
+    public function exportImagePixels($x, $y, $width, $height, $map, $STORAGE)
     {
         throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
@@ -1300,7 +1300,7 @@ class Imagick implements Iterator
     }
 
     /** @return int */
-    public function getImageAlphaChannel() //?TODO
+    public function getImageAlphaChannel()
     {
         $files = $this->files;
         
@@ -1646,7 +1646,7 @@ class Imagick implements Iterator
      * @param int $y
      * @return ImagickPixel
      */
-    public function getImagickPixelColor($x, $y)
+    public function getImagePixelColor($x, $y)
     {
         throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
@@ -1991,7 +1991,7 @@ class Imagick implements Iterator
      * @param array $pixels
      * @return bool
      */
-    public function importImagickPixels($x, $y, $width, $height, $map, $storage, $pixels)
+    public function importImagePixels($x, $y, $width, $height, $map, $storage, $pixels)
     {
         throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
@@ -2186,7 +2186,7 @@ class Imagick implements Iterator
      * @param string $format
      * @return bool
      */
-    public function newImage($cols, $rows, $background, $format) //?TODO
+    public function newImage($cols, $rows, $background, $format)
     {
         $argument = new Argument('size', $cols.'x'.$rows);
         $this->addConvertArgument($argument);
@@ -2809,10 +2809,8 @@ class Imagick implements Iterator
      * @param int $mode
      * @return bool
      */
-    public function setImageAlphaChannel($mode) //?TODO
+    public function setImageAlphaChannel($mode)
     {
-        //throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
-        
         $argument = new Argument('alpha', 'on');
         $this->addConvertArgument($argument);
         
@@ -2842,7 +2840,7 @@ class Imagick implements Iterator
      * @param mixed $background
      * @return bool
      */
-    public function setImageBackgroundColor($background) //?TODO
+    public function setImageBackgroundColor($background)
     {
         $background = new ImagickPixel($background);
         $argument = new Argument('background', 'rgb('.implode(',', $background->getColor()).')');
@@ -2908,7 +2906,7 @@ class Imagick implements Iterator
 
     /**
      * @param int $index
-     * @param ImagickPixel $color
+     * @param ImagePixel $color
      * @return bool
      */
     public function setImageColormapColor($index, $color)
@@ -3143,7 +3141,7 @@ class Imagick implements Iterator
      */
     public function setImagePage($width, $height, $x, $y)
     {
-        //throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /**
@@ -3340,8 +3338,8 @@ class Imagick implements Iterator
     public function setResourceLimit($type, $limit)
     {
         switch($type) {
-            case self::RESOURCETYPE_UNDEFINED:
-                return;
+            default:
+                throw new Exception(sprintf('%s::%s - %s not implemented', __CLASS__, __FUNCTION__, $type));
             break;
             case self::RESOURCETYPE_AREA:
                 $type = 'area';
