@@ -3802,7 +3802,7 @@ class Imagick implements Iterator
      * @param resource $filehandle
      * @return bool
      */
-    public function writeImageFile(resource $filehandle)
+    public function writeImageFile($filehandle)
     {
         $filename = tempnam(sys_get_temp_dir(), 'image');
         
