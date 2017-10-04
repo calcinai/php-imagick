@@ -1036,12 +1036,6 @@ class Imagick implements Iterator
             }
         }
         
-        switch($method) {
-            case 'SCALEROTATETRANSLATE':
-                $method = 'ScaleRotateTranslate';
-            break;
-        }
-        
         $this->addConvertCommand('-distort');
         $this->addConvertCommand($method);
         $this->addConvertCommand("'".implode(' ', $arguments)."'");
