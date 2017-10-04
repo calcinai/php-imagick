@@ -2906,7 +2906,7 @@ class Imagick implements Iterator
 
     /**
      * @param int $index
-     * @param ImagePixel $color
+     * @param ImagickPixel $color
      * @return bool
      */
     public function setImageColormapColor($index, $color)
