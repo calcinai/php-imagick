@@ -983,8 +983,10 @@ class Imagick implements Iterator
         throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
-    /** @description Deprecated in favor of Imagick::clear */
-    /** @return bool */
+    /**
+     * Deprecated in favor of Imagick::clear
+     * @return bool
+     */
     public function destroy()
     {
         return $this->clear();
