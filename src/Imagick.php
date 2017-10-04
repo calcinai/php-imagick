@@ -1268,7 +1268,7 @@ class Imagick implements Iterator
     /** @return string */
     public function getFilename()
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        return $this->filename;
     }
 
     /** @return string */
@@ -1310,7 +1310,7 @@ class Imagick implements Iterator
         $files[$current][] = new Argument('format', '%[channels]');
         $files[$current][] = 'info:';
         
-        $convert_command = $this->buildConvertCommand(key($files), current($files), '-');
+        $convert_command = $this->buildConvertCommand($files, '-');
         $channels = shell_exec($convert_command);
         
         return (int) strpos($channels, 'rgba') !== false;
@@ -1343,7 +1343,7 @@ class Imagick implements Iterator
     /** @return string */
     public function getImageBlob()
     {
-        $convert_command = $this->buildConvertCommand(key($this->files), current($this->files), '-');
+        $convert_command = $this->buildConvertCommand($files, '-');
         return shell_exec($convert_command);
     }
 
@@ -1555,7 +1555,7 @@ class Imagick implements Iterator
         $files[$current][] = new Argument('format', '%w x %h');
         $files[$current][] = 'info:';
         
-        $convert_command = $this->buildConvertCommand(key($files), current($files), '-');
+        $convert_command = $this->buildConvertCommand($files, '-');
         $size = shell_exec($convert_command);
         list($width, $height) = explode('x', str_replace(' ', '', $size));
         
@@ -1630,7 +1630,7 @@ class Imagick implements Iterator
         $files[$current][] = new Argument('format', '%[EXIF:Orientation]');
         $files[$current][] = 'info:';
         
-        $convert_command = $this->buildConvertCommand(key($files), current($files), '-');
+        $convert_command = $this->buildConvertCommand($files, '-');
         $orientation = shell_exec($convert_command);
         
         $name = 'Imagick::ORIENTATION_'.strtoupper($orientation);
@@ -1789,7 +1789,7 @@ class Imagick implements Iterator
         $files[$current][] = new Argument('format', '%w x %h');
         $files[$current][] = 'info:';
         
-        $convert_command = $this->buildConvertCommand(key($files), current($files), '-');
+        $convert_command = $this->buildConvertCommand($files, '-');
         $size = shell_exec($convert_command);
         list($width, $height) = explode('x', str_replace(' ', '', $size));
         
@@ -3770,7 +3770,11 @@ class Imagick implements Iterator
      */
     public function writeImage($filename = NULL)
     {
-        $convert_command = $this->buildConvertCommand(key($this->files), current($this->files), ($filename !== NULL ? $filename : ($this->filename !== NULL ? $this->filename : '-')));
+        if($filename !== NULL) {
+            $this->filename = $filename;
+        }
+        
+        $convert_command = $this->buildConvertCommand($files, ($this->filename !== NULL ? $this->filename : '-'));
         $shell = shell_exec($convert_command);
         
         return (bool) $shell;
@@ -3780,9 +3784,21 @@ class Imagick implements Iterator
      * @param resource $filehandle
      * @return bool
      */
-    public function writeImageFile($filehandle)
+    public function writeImageFile(resource $filehandle)
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $filename = tempnam(sys_get_temp_dir(), 'image');
+        
+        $convert_command = $this->buildConvertCommand($files, $filename);
+        $image = shell_exec($convert_command);
+        
+        if(!file_exists($filename)) {
+            return false;
+        }
+        
+        $image = file_get_contents($filename);
+        @unlink($filename); //If it throws a warning, no one cares, it's supposed to not exist anyway!
+        
+        return (bool) fwrite($filehandle, $image);
     }
 
     /**
@@ -3874,10 +3890,15 @@ class Imagick implements Iterator
      * @param string $output_file
      * @return string
      */
-    private static function buildConvertCommand($input_file, $convert_args, $output_file)
+    private static function buildConvertCommand($convert_args, $output_file)
     {
-        $args = implode(' ', $convert_args);
-        return sprintf('%s %s %s %s', self::$convert_path, $input_file, $args, (strpos($args, 'info:') !== false ? '' : $output_file));
+        $args = [ ];
+        foreach($convert_args as $filename => $convert_arg) {
+            $args[] = $filename.' '.implode(' ', $convert_arg);
+        }
+        $args = implode(' ', $args);
+        
+        return sprintf('%s %s %s', self::$convert_path, $args, (strpos($args, 'info:') !== false ? '' : $output_file));
     }
 
 }
