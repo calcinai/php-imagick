@@ -2589,7 +2589,10 @@ class Imagick implements Iterator
      */
     public function resetImagePage($page)
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $argument = new Argument('page', $page);
+        $this->addConvertArgument($argument);
+        
+        return true;
     }
 
     /**
@@ -3143,7 +3146,22 @@ class Imagick implements Iterator
      */
     public function setImagePage($width, $height, $x, $y)
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $page = $width.'x'.$height;
+        
+        if($x > 0) {
+            $x = '+'.$x;
+        }
+        $page .= $x;
+        
+        if($y > 0) {
+            $y = '+'.$y;
+        }
+        $page .= $y;
+        
+        $argument = new Argument('page', $page);
+        $this->addConvertArgument($argument);
+        
+        return true;
     }
 
     /**
