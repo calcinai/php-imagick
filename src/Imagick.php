@@ -2721,7 +2721,10 @@ class Imagick implements Iterator
      */
     public function setBackgroundColor($background)
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $argument = new Argument('background', $background);
+        $this->addConvertArgument($argument);
+
+        return true;
     }
 
     /**
