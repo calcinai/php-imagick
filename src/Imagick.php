@@ -1450,7 +1450,16 @@ class Imagick implements Iterator
     /** @return int */
     public function getImageColorspace()
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $files = $this->files;
+        $current = key($files);
+        $files[$current][] = new Argument('format', '%[colorspace]');
+        $files[$current][] = 'info:';
+
+        $convert_command = $this->buildConvertCommand($files, '-');
+        $colorspace = shell_exec($convert_command);
+
+        $name = 'Imagick::COLORSPACE_'.strtoupper($colorspace);
+        return (int) constant($name);
     }
 
     /** @return int */
