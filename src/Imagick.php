@@ -1477,7 +1477,15 @@ class Imagick implements Iterator
     /** @return int */
     public function getImageCompressionQuality()
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $files = $this->files;
+        $current = key($files);
+        $files[$current][] = new Argument('format', '%[quality]');
+        $files[$current][] = 'info:';
+
+        $convert_command = $this->buildConvertCommand($files, '-');
+        $quality = shell_exec($convert_command);
+
+        return (int) $quality;
     }
 
     /** @return int */
