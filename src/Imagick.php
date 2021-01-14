@@ -1714,18 +1714,16 @@ class Imagick implements Iterator
         $files[$current][] = 'info:';
 
         $convert_command = $this->buildConvertCommand($files, '-');
-
         $properties = shell_exec($convert_command);
-        #var_dump($properties);
 
         $properties = explode("\n", trim($properties));
 
         foreach((array) $properties as $property) {
             list($key,$value) = explode('=', $property);
-            $x[$key] = $value;
+            $props[$key] = $value;
         }
 
-        return (array) $x;
+        return (array) $props;
 
     }
 
