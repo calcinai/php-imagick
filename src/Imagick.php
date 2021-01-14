@@ -3964,7 +3964,7 @@ class Imagick implements Iterator
     {
         $args = [ ];
         foreach($convert_args as $filename => $convert_arg) {
-            $args[] = $filename.' '.implode(' ', $convert_arg);
+            $args[] = '"'.$filename.'" '.implode(' ', $convert_arg);
         }
         $args = implode(' ', $args);
 
