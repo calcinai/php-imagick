@@ -1147,8 +1147,6 @@ class Imagick implements Iterator
         $this->addConvertArgument($argument);
 
         return $this;
-
-        //throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
     }
 
     /** @return bool */
@@ -1642,11 +1640,11 @@ class Imagick implements Iterator
     }
 
     /** @return string */
-    public function getImageMimeType() : string
+    public function getImageMimeType()
     {
         $files = $this->files;
         $current = key($files);
-
+        // is the result different in IM?
         return mime_content_type($current);
     }
 
@@ -1705,12 +1703,13 @@ class Imagick implements Iterator
      * @param bool $only_names
      * @return array
      */
-    public function getImageProperties($pattern = "*", $only_names = true) : array
+    public function getImageProperties($pattern = "*", $only_names = true)
     {
 
         $files = $this->files;
         $current = key($files);
 
+        // TODO: implement $only_names
         $files[$current][] = new Argument('format', '%[' . $pattern . ']');
         $files[$current][] = 'info:';
 
@@ -3968,7 +3967,7 @@ class Imagick implements Iterator
             $args[] = $filename.' '.implode(' ', $convert_arg);
         }
         $args = implode(' ', $args);
-        
+
         return sprintf('%s %s %s', self::$convert_path, $args, (strpos($args, 'info:') !== false ? '' : $output_file));
     }
 
