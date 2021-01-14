@@ -3003,7 +3003,7 @@ class Imagick implements Iterator
      */
     public function setImageCompressionQuality($quality)
     {
-        $this->addConvertCommand('-limit '.$quality);
+        $this->addConvertCommand('-quality '.$quality);
         return true;
     }
 
