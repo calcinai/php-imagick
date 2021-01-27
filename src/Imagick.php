@@ -1148,7 +1148,8 @@ class Imagick implements Iterator
     /** @return bool */
     public function flipImage()
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $this->addConvertArgument(new Argument('flip'));
+        return true;
     }
 
     /**
@@ -1169,7 +1170,8 @@ class Imagick implements Iterator
     /** @return bool */
     public function flopImage()
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $this->addConvertArgument(new Argument('flop'));
+        return true;
     }
 
     /**
