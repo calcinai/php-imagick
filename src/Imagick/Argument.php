@@ -11,7 +11,7 @@ class Argument {
     public $name;
     public $value;
 
-    public function __construct($name, $value) {
+    public function __construct($name, $value = null) {
         $this->name = $name;
         $this->value = $value;
     }
@@ -20,7 +20,11 @@ class Argument {
      * @return string
      */
     public function compile() {
-        return sprintf('-%s "%s"', $this->name, $this->value);
+        $string = sprintf('-%s', $this->name);
+        if ($this->value !== null) {
+            $string .= sprintf(' "%s"', $this->value);
+        }
+        return $string;
     }
 
     public function __toString() {

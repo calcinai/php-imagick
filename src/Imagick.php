@@ -1148,7 +1148,8 @@ class Imagick implements Iterator
     /** @return bool */
     public function flipImage()
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $this->addConvertArgument(new Argument('flip'));
+        return true;
     }
 
     /**
@@ -1169,7 +1170,8 @@ class Imagick implements Iterator
     /** @return bool */
     public function flopImage()
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $this->addConvertArgument(new Argument('flop'));
+        return true;
     }
 
     /**
@@ -2635,9 +2637,11 @@ class Imagick implements Iterator
      * @param string $angle
      * @param int|string $CHANNEL
      */
-    public function rotationalBlurImage($angle, $CHANNEL = Imagick::CHANNEL_DEFAULT)
+    public function rotationalBlurImage($angle, $channel = Imagick::CHANNEL_DEFAULT)
     {
-        throw new Exception(sprintf('%s::%s not implemented', __CLASS__, __FUNCTION__));
+        $this->addConvertArgument(new Argument('channel', $channel));
+        $this->addConvertArgument(new Argument('rotate', $angle));
+        return true;
     }
 
     /**
